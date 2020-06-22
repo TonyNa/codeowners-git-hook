@@ -1,0 +1,7 @@
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "codeowners-git-hook && git add CODEOWNERS",
+    }
+  }
+}
