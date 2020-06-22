@@ -1,7 +1,10 @@
 {
+  "devDependencies": {
+    "codeowners-git-hook": "^1.0.2"
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "codeowners-git-hook && git add CODEOWNERS",
+      "pre-commit": "node node_modules/codeowners-git-hook/hook.js"
     }
   }
 }

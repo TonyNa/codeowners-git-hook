@@ -14,6 +14,7 @@ const ownersFileChanged = execCommand("git status --porcelain")
 const getOwnerFiles = () => {
   return execCommand(`find ${rootDir} -name "OWNERS"`)
     .split("\n")
+    .filter(file => !file.includes("node_modules"))
     // sort first by path length, then by name
     .sort()
     .sort((f1, f2) => {
@@ -43,7 +44,7 @@ const updateCodeOwnersFile = (rows) => {
   rows.map(row => {
     execCommand(`echo "${row}" >> ${filePath}`);
   });
-  execCommand(`git add ${filePath}`);
+  execCommand(`git add -f ${filePath}`);
 }
 
 if (ownersFileChanged) {

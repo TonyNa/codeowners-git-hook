@@ -1,6 +1,6 @@
 {
   "name": "codeowners-git-hook",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Git hook for easier codeowner management",
   "main": "hook.js",

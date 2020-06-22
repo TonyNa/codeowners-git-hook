@@ -1,0 +1,4 @@
+* @TonyNa
+examples @alice @bob @charlie @david @evans
+examples/dir1 @alice @bob
+examples/dir2 @charlie @david
