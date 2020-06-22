@@ -1,5 +1,29 @@
 {
   "name": "codeowners-git-hook",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "description": "Git hook for easier codeowner management",
+  "main": "hook.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TonyNa/codeowners-git-hook.git"
+  },
+  "keywords": [
+    "codeowners",
+    "github"
+  ],
+  "author": "tonyna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TonyNa/codeowners-git-hook/issues"
+  },
+  "homepage": "https://github.com/TonyNa/codeowners-git-hook#readme"
 }
