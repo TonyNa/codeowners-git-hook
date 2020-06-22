@@ -1,13 +1,15 @@
 {
   "name": "codeowners-git-hook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Git hook for easier codeowner management",
   "main": "hook.js",
   "directories": {
     "example": "examples"
   },
-  "dependencies": {},
+  "dependencies": {
+    "husky": "^4.2.5"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
