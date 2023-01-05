@@ -4,12 +4,13 @@ const execCommand = (command) => {
   return childProcess.execSync(command).toString().trim();
 }
 
-const rootDir = execCommand("git rev-parse --show-toplevel")
+const rootDir = execCommand("git rev-parse --show-toplevel");
 
-const ownersFileChanged = execCommand("git status --porcelain")
+const modifiedOwnersFiles = execCommand("git status --porcelain")
   // disregard untracked files
-  .replace(/^\?\?.*/mg, '')
-  .includes("OWNERS");
+  .replace(/^\?\?.*/mg, '');
+
+const ownersFileChanged = modifiedOwnersFiles.includes("OWNERS");
 
 const getOwnerFiles = () => {
   return execCommand(`find ${rootDir} -name "OWNERS"`)
@@ -47,8 +48,13 @@ const updateCodeOwnersFile = (rows) => {
   execCommand(`git add -f ${filePath}`);
 }
 
+console.log("running git owners hook for directory: " + rootDir);
+
 if (ownersFileChanged) {
   const ownerFiles = getOwnerFiles();
+  console.log("OWNERS files modified: \n" + modifiedOwnersFiles);
+
   const rows = ownerFiles.map(processOwnerFile);
   updateCodeOwnersFile(rows);
+  console.log("CODEOWNERS file has been updated.");
 }
